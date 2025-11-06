@@ -121,6 +121,39 @@
                 background-image: linear-gradient(to top, #5989b188, #c285a688, #ffb16f88);
                 color: light-dark(#000, #FFF);
             }
+
+            #countdownCont {
+                text-align: center;
+                margin-block: 3em;
+            }
+            
+            #countdown {
+                font-family: "Oswald", sans-serif;
+                font-size: min(7em, 10vw);
+                letter-spacing: 0.05em;
+
+                > div {
+                    display: inline;
+                }
+                span {
+                    width: 1ch;
+                    display: inline-block;
+                    background-image: linear-gradient(#5989b1, #c285a6, #ffb16f);
+                    background-clip: text;
+                    color: transparent;
+                }
+                .changed {
+                    animation: flash 250ms ease-in;
+                }
+            }
+            @keyframes flash {
+                0% {
+                    opacity: 0.7;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
         </style>
 	</head>
 
@@ -132,8 +165,11 @@
             </div>
         </header>
         <main>
+            <section id="countdownCont">
+                <span id="countdown"></span>
+            </section>
             <section id="preview">
-                <p>Billboards from the <a href="https://youtu.be/QdBZY2fkU-0" target="_blank">Trailer 1</a>, <a href="https://youtu.be/VQRLujxTm3c" target="_blank">Trailer 2</a> & the <a href="https://www.rockstargames.com/VI" target="_blank">website</a>.</p>
+                <p>Billboards from the <a href="https://youtu.be/QdBZY2fkU-0" target="_blank">Trailer 1</a>, <a href="https://youtu.be/VQRLujxTm3c" target="_blank">Trailer 2</a> & the <a href="https://www.rockstargames.com/VI" target="_blank">website</a>:</p>
                 <div class="billboardsCont">
                     <img src="pictures/billboards/preview/billboard_trailer1.jpg" alt="Billboard from the Trailer 1 (blurry)" loading="lazy">
                     <img src="pictures/billboards/preview/billboard_trailer2.jpg" alt="Billboard from the Trailer 1 (cropped and blurry)" loading="lazy">
@@ -158,5 +194,49 @@
         <footer>
             @ssstuart
         </footer>
+
+        <script>
+            const releaseDate = new Date(2026, 10, 19);
+            let oldDays = 0;
+            let oldHours = 0;
+            let oldMinutes = 0;
+            
+            function updateCountdown() {
+                const now = new Date();
+                let countdown = "";
+                let remainingSeconds = (releaseDate-now) / 1000;
+                const remainingDays = Math.floor(remainingSeconds / (60 * 60 * 24));
+                const remainingDaysString = remainingDays < 10 ? "0"+remainingDaysString : remainingDays.toString();
+                if (remainingDays > 0) {
+                    countdown += "<div"+(remainingDays != oldDays ? " class='changed'":"")+`><span>${remainingDaysString.split("").join('</span><span>')}</span>d</div> `;
+                    oldDays = remainingDays;
+                }
+                remainingSeconds = remainingSeconds % (60 * 60 * 24);
+                const remainingHours = Math.floor(remainingSeconds / (60 * 60));
+                const remainingHoursString = remainingHours < 10 ? "0"+remainingHours : remainingHours.toString();        
+                if (remainingDays > 0 || remainingHours > 0) {
+                    countdown += "<div"+(remainingHours != oldHours ? " class='changed'":"")+`><span>${remainingHoursString.split("").join('</span><span>')}</span>h</div> `;
+                    oldHours = remainingHours;
+                }
+                remainingSeconds = remainingSeconds % (60 * 60);
+                const remainingMinutes = Math.floor(remainingSeconds / 60);
+                const remainingMinutesString = remainingMinutes < 10 ? "0"+remainingMinutes : remainingMinutes.toString();            
+                if (remainingDays > 0 || remainingHours > 0 || remainingMinutes > 0) {
+                    countdown += "<div"+(remainingMinutes != oldMinutes ? " class='changed'":"")+`><span>${remainingMinutesString.split("").join('</span><span>')}</span>m</div> `;
+                    oldMinutes = remainingMinutes
+                }
+                remainingSeconds = Math.floor(remainingSeconds % 60);
+                const remainingSecondesString = remainingSeconds < 10 ? "0"+remainingSeconds : remainingSeconds.toString();            
+                if (remainingDays > 0 || remainingHours > 0 || remainingMinutes > 0 || remainingSeconds > 0)
+                    countdown += `<div class='changed'><span>${remainingSecondesString.split("").join('</span><span>')}</span>s</div>`;
+                
+                document.getElementById('countdown').innerHTML = countdown;
+            }
+
+            updateCountdown();
+            setInterval(() => {
+                updateCountdown();
+            }, 1000);
+        </script>
     </body>
 </html>
