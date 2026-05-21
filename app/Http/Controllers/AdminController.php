@@ -117,8 +117,8 @@ class AdminController extends Controller
         // Image processing
         $fileName = "{$slug}.". $request->file('image')->getClientOriginalExtension();
 
-        if (!Storage::exists('pictures/billboards/'))
-            Storage::makeDirectory('pictures/billboards/');
+        if (!Storage::disk('public')->exists('pictures/billboards/'))
+            Storage::disk('public')->makeDirectory('pictures/billboards/');
 
         $uploadedImage = $request->file('image')->storeAs(
             'pictures/billboards', $fileName, 'public'
@@ -126,8 +126,8 @@ class AdminController extends Controller
 
         $manager = new ImageManager(new Driver());
 
-        if (!Storage::exists('pictures/billboards/thumbnails/'))
-            Storage::makeDirectory('pictures/billboards/thumbnails/');
+        if (!Storage::disk('public')->exists('pictures/billboards/thumbnails/'))
+            Storage::disk('public')->makeDirectory('pictures/billboards/thumbnails/');
 
         $manager->decode(storage_path("app/public/".$uploadedImage))
                         ->scaleDown(50, 50)
