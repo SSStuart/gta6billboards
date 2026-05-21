@@ -11,14 +11,18 @@
     <main id="main">
         <section id="loginSection">
             <h2><i class='iiicon' data-name='lock' style="font-size: 2em"></i><br>Admin Login</h2>
-            <div class="inputCont">
-                <label for="username">Username :</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="inputCont">
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password">
-            </div>
+            <form action="{{ route('admin.authenticate') }}" method="POST">
+                @csrf
+                <div class="inputCont">
+                    <label for="username">Username :</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="inputCont">
+                    <label for="password">Password :</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <button>Submit</button>
+            </form>
         </section>
     </main>
 @endsection

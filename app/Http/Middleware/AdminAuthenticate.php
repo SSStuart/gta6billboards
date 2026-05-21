@@ -19,7 +19,7 @@ class AdminAuthenticate
         if (!Auth::guard('admin')->check()) {
             $redirectUrl = urlencode($request->route()->getName());
             $queryParams = $request->query();
-            return redirect()->route('admin.login', ["redir" => $redirectUrl, 'params' => http_build_query($queryParams)])->with(['error' => __('middleware.loginRequired')]);
+            return redirect()->route('admin.login', ["redir" => $redirectUrl, 'params' => http_build_query($queryParams)])->with(['error' => "You need to login to access this page"]);
         }
 
         return $next($request);

@@ -22,10 +22,12 @@ document.getElementById('addContributorBtn').addEventListener('click', () => {
     document.getElementById('newContribCont').classList.remove('hidden');
     document.getElementById('newContributorUsername').setAttribute('required', true);
     document.getElementById('existingContribCont').classList.add('hidden');
+    document.getElementById('contributorId').removeAttribute('required');
 });
 
 document.getElementById('addZoneBtn').addEventListener('click', () => {
     document.getElementById('newZoneCont').classList.remove('hidden');
     document.getElementById('newZoneName').setAttribute('required', true);
     document.getElementById('existingZoneCont').classList.add('hidden');
+    document.getElementById('zoneId').removeAttribute('required');
 });

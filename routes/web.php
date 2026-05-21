@@ -14,5 +14,7 @@ Route::get('/map/{slug}', [MapController::class, 'show'])->name('map.show');
 Route::get('/contribute', [ContributionController::class, 'index'])->name('contribute');
 Route::post('/contribute', [ContributionController::class, 'store'])->name('contribute.store');
 
-Route::view('/admin/login', 'admin.login')->name('admin.login');
-Route::get('/admin/addBillboard', [AdminController::class, 'addBillboard'])->name('admin.add');//->middleware(AdminAuthenticate::class);
+Route::get('/admin/', [AdminController::class, 'show'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'authenticate'])->name('admin.authenticate');
+Route::get('/admin/billboard', [AdminController::class, 'create'])->name('admin.create')->middleware(AdminAuthenticate::class);
+Route::post('/admin/billboard', [AdminController::class, 'store'])->name('admin.store')->middleware(AdminAuthenticate::class);
