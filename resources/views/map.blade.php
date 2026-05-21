@@ -16,5 +16,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/map.js'])
+    {{-- @vite(['resources/js/map.js']) --}}
 @endpush

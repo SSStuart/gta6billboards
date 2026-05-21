@@ -31,5 +31,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/billboard.js'])
+    {{-- @vite(['resources/js/billboard.js']) --}}
 @endpush
