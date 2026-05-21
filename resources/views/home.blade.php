@@ -31,7 +31,7 @@
                             <img class="billboardImage" src="{{ asset('storage/pictures/billboards/'.$billboard->filename) }}" alt="{{ $billboard->name }}" loading="lazy">
                         </a>
                         <a href="{{ route('billboard.show', ['slug' => $billboard->slug]) }}" class="billboardName">{{ $billboard->name }}</a>
-                        <a href="{{ route('map.show', ['slug' => $billboard->slug]) }}" class="mapLink tooltipTarget" data-tooltip-pos="left"><i class='iiicon' data-name='location'></i><span class="tooltip">See on the map</span></a>
+                        {{-- <a href="{{ route('map.show', ['slug' => $billboard->slug]) }}" class="mapLink tooltipTarget" data-tooltip-pos="left"><i class='iiicon' data-name='location'></i><span class="tooltip">See on the map</span></a> --}}
                     </div>
                 @endforeach
                 <div id="noResults" class="hidden">
