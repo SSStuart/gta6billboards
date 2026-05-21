@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gta6billboards.ssstuart.net/</loc>
+    <lastmod>2026-05-01T16:12:28+00:00</lastmod>
+    <priority>1.00</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://gta6billboards.ssstuart.net/map</loc>
+    <lastmod>2026-05-01T16:12:28+00:00</lastmod>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://gta6billboards.ssstuart.net/contribute</loc>
+    <lastmod>2026-05-01T16:12:28+00:00</lastmod>
+    <priority>0.50</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
