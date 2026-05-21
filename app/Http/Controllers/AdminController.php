@@ -8,6 +8,7 @@ use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -115,6 +116,9 @@ class AdminController extends Controller
 
         // Image processing
         $fileName = "{$slug}.". $request->file('image')->getClientOriginalExtension();
+
+        if (!Storage::exists('pictures/billboards'))
+            Storage::makeDirectory('pictures/billboards');
 
         $uploadedImage = $request->file('image')->storeAs(
             'pictures/billboards', $fileName, 'public'
