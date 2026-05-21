@@ -1,0 +1,13 @@
+#loginSection {
+    display: grid;
+    justify-content: center;
+}
+
+
+
+@media screen and (width < 600px) {
+    .inputCont {
+        flex-direction: column;
+        align-items: start;
+    }
+}

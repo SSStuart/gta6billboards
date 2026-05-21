@@ -1,0 +1,34 @@
+#formSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100ch;
+    margin-inline: auto;
+}
+
+#sizePreviewGrid {
+    aspect-ratio: 16 / 9;
+
+    --grid-color: hsl(from var(--accent-color) h s l / 20%);
+    background-image:
+        repeating-linear-gradient(var(--grid-color) 0%, var(--grid-color) 6%, transparent 6%, transparent 94%, var(--grid-color) 94%, var(--grid-color) 100%),
+        repeating-linear-gradient(90deg, var(--grid-color) 0%, var(--grid-color) 3%, transparent 3%, transparent 97%, var(--grid-color) 97%, var(--grid-color) 100%);
+    background-size: 25% 25%;
+}
+#sizePreview {
+    width: calc(var(--width, 1) / 4 * 100%);
+    height: calc(var(--height, 1) / 4 * 100%);
+
+    background-color: var(--accent-color, red);
+}
+#imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#addContributorBtn,
+#addZoneBtn {
+    margin-block: 0;
+    margin-inline: 0 auto;
+    opacity: 0.8;
+}

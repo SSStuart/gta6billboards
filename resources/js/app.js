@@ -215,3 +215,7 @@ document.querySelectorAll('.tooltipTarget').forEach(target => {
 document.getElementById("openGameSelector").addEventListener('click', () => {
     toggleDialog(document.getElementById("gameSelector"), "show", "nonModal");
 });
+
+document.getElementById('iaDisclaimerBtn').addEventListener('click', () => {
+	toggleDialog(document.getElementById('aiDisclaimer'));
+})

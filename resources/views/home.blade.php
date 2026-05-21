@@ -10,7 +10,7 @@
 @section('content')
     <main id="main">
         <section id="countdownCont">
-            <span id="countdown"></span>
+            <span id="countdown">&nbsp;</span>
         </section>
         <section id="billboardsSection">
             <div id="filtersCont">
@@ -25,14 +25,19 @@
 
             <div id="billboardsList">
                 @foreach ($billboards as $billboard)
-                    <div class="billboardCont" data-name="{{ $billboard->name }}" data-description="{{ $billboard->description }}" data-remark="{{ $billboard->remark }}" data-contributor="{{ $billboard->contributor->username }}">
+                    <div class="billboardCont" data-width="{{ $billboard->width }}" data-height="{{ $billboard->height }}" style="--col-span: {{ $billboard->width }}; --row-span: {{ $billboard->height }}" data-name="{{ $billboard->name }}" data-description="{{ $billboard->description }}" data-remark="{{ $billboard->remark }}" data-contributor="{{ $billboard->contributor->username }}">
                         <a href="{{ route('billboard.show', ['slug' => $billboard->slug]) }}" class="imgLink">
-                            <img src="{{ asset('storage/pictures/billboards/'.$billboard->filename) }}" alt="{{ $billboard->name }}" loading="lazy">
+                            <img class="billboardImage" src="{{ asset('storage/pictures/billboards/thumbnails/'.$billboard->filename) }}" alt="">
+                            <img class="billboardImage" src="{{ asset('storage/pictures/billboards/'.$billboard->filename) }}" alt="{{ $billboard->name }}" loading="lazy">
                         </a>
                         <a href="{{ route('billboard.show', ['slug' => $billboard->slug]) }}" class="billboardName">{{ $billboard->name }}</a>
                         <a href="{{ route('map.show', ['slug' => $billboard->slug]) }}" class="mapLink tooltipTarget" data-tooltip-pos="left"><i class='iiicon' data-name='location'></i><span class="tooltip">See on the map</span></a>
                     </div>
                 @endforeach
+                <div id="noResults" class="hidden">
+                    <p>No results :(</p>
+                    <button type="button" id="clearFiltersBtn" class="btnLink"><i class='iiicon' data-name='close'></i> Clear filters</button>
+                </div>
             </div>
         </section>
     </main>

@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
-
 
 @media (prefers-reduced-motion: reduce) {
 	* {
@@ -208,6 +203,10 @@ dt {
     }
 }
 
+fieldset {
+    border-radius: 5px;
+}
+
 .inputGroup {
     display: flex;
     flex-wrap: wrap;
@@ -269,15 +268,18 @@ select {
     max-width: 100%;
 }
 input:user-valid,
-textarea:user-valid {
+textarea:user-valid,
+select:user-valid {
     border-color: var(--input-valid-color);
 }
 input:user-invalid,
-textarea:user-invalid {
+textarea:user-invalid,
+select:user-invalid {
     border-color: var(--input-invalid-color);
 }
 .inputCont:has(input:user-invalid) label::after,
-.inputCont:has(textarea:user-invalid) label::after {
+.inputCont:has(textarea:user-invalid) label::after,
+.inputCont:has(select:user-invalid) label::after {
     content: '⚠' / "";
     color: var(--input-invalid-color);
 }
@@ -380,7 +382,7 @@ input[type="submit"]:not(:disabled):hover,
 button:not(:disabled):focus,
 input[type="submit"]:not(:disabled):focus,
 .linkBtn:focus {
-    
+
 }
 button:not(:disabled):active,
 input[type="submit"]:not(:disabled):active,
@@ -883,7 +885,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 2em;
-    max-width: 120ch;
+    max-width: 85rem;
     margin-inline: auto;
 }
 #gameSelectorWrapper {
@@ -943,12 +945,62 @@ nav {
     justify-content: center;
     gap: 1ch 2ch;
 }
+.comingSoon {
+    position: relative;
+
+    &::after {
+        content: 'Coming Soon™';
+        position: absolute;
+        top: 100%;
+        inset-inline: 0;
+        font-family: Nunito, Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;;
+        font-size: 30%;
+        color: #FFF;
+        text-align: center;
+    }
+}
+
+a[data-active-page="1"] {
+    text-decoration: none;
+
+    animation: activatePage 500ms forwards;
+}
+@keyframes activatePage {
+    to {
+        background-color: #FFF;
+        color: var(--accent-color);
+    }
+}
 
 footer {
 	text-align: center;
 	padding: 2em;
 	background-image: linear-gradient(to top, #5989b188, #c285a688, #ffb16f88);
 	color: light-dark(#000, #FFF);
+}
+
+#iaDisclaimerBtn {
+    border: none;
+    font-size: 2em;
+    padding: 5px;
+    margin: 0;
+}
+
+#aiDisclaimer {
+
+    h2 {
+        display: flex;
+        gap: .5ch;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #aiDisclaimerGeneral {
+        background-color: hsl(from var(--accent-color) h s l / 20%);
+        padding: 0.5em 1em;
+        border: solid var(--accent-color) 1px;
+        border-radius: 10px;
+    }
 }
 
 

@@ -1,0 +1,124 @@
+#billboardDisplay {
+    margin-inline: auto;
+    margin-block: 1em 3em;
+    width: fit-content;
+    text-align: center;
+    
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "title title title" 
+        "navPrev img navNext"
+        ". desc .";
+    align-items: center;
+    justify-items: center;
+    gap: 1ch;
+}
+#billboardName {
+    grid-area: title;
+}
+.navLink {
+    height: clamp(2em, 10vw, 3em);
+    width: clamp(2em, 10vw, 3em);
+    border-radius: 1000px;
+    background-color: var(--accent-color);
+    color: #FFF;
+
+    --translate-distance: 1em;
+
+    transition: background-color 500ms;
+
+    &:is(:hover, :focus) {
+        background-color: hsl(from var(--accent-color) h s calc(l * 1.2));
+    }
+
+    > svg {
+        transition: 500ms;
+    }
+
+    &.unavailable {
+        visibility: hidden;
+    }
+}
+#navPrevious {
+    grid-area: navPrev;
+}
+#navNext {
+    grid-area: navNext;
+}
+#navPrevious:is(:hover, :focus) svg {
+    translate:  calc(var(--translate-distance) * -1);
+}
+#navNext:is(:hover, :focus) svg {
+    translate:  calc(var(--translate-distance) * 1);
+}
+
+#billboardName {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2em;
+}
+
+#billboardImg {
+    grid-area: img;
+    min-width: min(100vw, 50vw);
+    margin-inline: auto;
+    border-radius: 5px;
+}
+
+#billboardsDetails {
+    grid-area: desc;
+    width: 100%;
+    background-color: hsl(from var(--accent-color) h s l / 0.2);
+    padding: 1em 2em;
+    border-radius: 5px;
+
+}
+#billboardDescription {
+    margin-block-start: 0;
+}
+#billboardRemark {
+    border: solid 1px #8888;
+    border-radius: 5px;
+    padding-inline: calc(1em + 2ch) 1em;
+    padding-block: 0.5em;
+    font-style: italic;
+    position: relative;
+
+    &::before {
+        content: "ℹ";
+        position: absolute;
+        inset-inline-start: 1ch;
+    }
+}
+#detailsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center;
+    gap: 2ch;
+    border-block-start: solid 2px #8884;
+    padding-block-start: 1em;
+
+    > div {
+        display: flex;
+        align-items: center;
+        gap: 0.5ch;
+    }
+}
+
+@media screen and (width < 900px) {
+    #billboardDisplay {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "navPrev navNext"
+            "title title"
+            "img img"
+            "desc desc";
+    }
+    .navLink {
+        --translate-distance: 0.5em;
+
+        width: calc(100% - 1em);
+        height: 2em;
+    }
+}

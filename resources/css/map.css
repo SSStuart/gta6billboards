@@ -1,0 +1,22 @@
+body {
+    grid-template-rows: auto 1fr auto;
+}
+
+#mapSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    background-color: light-dark(#347cda, #10103d);
+    background-image:
+        repeating-linear-gradient(transparent 0px, transparent 49px, #FFF2 49px, #FFF2 51px, transparent 51px, transparent 100px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 49px, #FFF2 49px, #FFF2 51px, transparent 51px, transparent 100px);
+    background-position: center;
+    background-size: 100px;
+
+    h2 {
+        background-color: inherit;
+        padding: 1em;
+    }
+}
