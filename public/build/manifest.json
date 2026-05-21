@@ -1,0 +1,98 @@
+{
+  "resources/css/admin/add_billboard.css": {
+    "file": "assets/add_billboard-CuxBGVDa.css",
+    "name": "add_billboard",
+    "names": [
+      "add_billboard.css"
+    ],
+    "src": "resources/css/admin/add_billboard.css",
+    "isEntry": true
+  },
+  "resources/css/admin/login.css": {
+    "file": "assets/login-BoJDnUiZ.css",
+    "name": "login",
+    "names": [
+      "login.css"
+    ],
+    "src": "resources/css/admin/login.css",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-B_kuvR0k.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/billboard.css": {
+    "file": "assets/billboard-CPpMugZz.css",
+    "name": "billboard",
+    "names": [
+      "billboard.css"
+    ],
+    "src": "resources/css/billboard.css",
+    "isEntry": true
+  },
+  "resources/css/contribute.css": {
+    "file": "assets/contribute-h7AbW-8r.css",
+    "name": "contribute",
+    "names": [
+      "contribute.css"
+    ],
+    "src": "resources/css/contribute.css",
+    "isEntry": true
+  },
+  "resources/css/home.css": {
+    "file": "assets/home-DPW_2exE.css",
+    "name": "home",
+    "names": [
+      "home.css"
+    ],
+    "src": "resources/css/home.css",
+    "isEntry": true
+  },
+  "resources/css/map.css": {
+    "file": "assets/map-DA6CGPde.css",
+    "name": "map",
+    "names": [
+      "map.css"
+    ],
+    "src": "resources/css/map.css",
+    "isEntry": true
+  },
+  "resources/js/admin/add_billboard.js": {
+    "file": "assets/add_billboard-CAZgKy72.js",
+    "name": "add_billboard",
+    "src": "resources/js/admin/add_billboard.js",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Cy3RyIK9.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/bootstrap.js"
+    ]
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-BA2N4v8M.js",
+    "name": "bootstrap",
+    "src": "resources/js/bootstrap.js",
+    "isEntry": true
+  },
+  "resources/js/contribute.js": {
+    "file": "assets/contribute-B7jzlotT.js",
+    "name": "contribute",
+    "src": "resources/js/contribute.js",
+    "isEntry": true
+  },
+  "resources/js/home.js": {
+    "file": "assets/home-DqyrOh6B.js",
+    "name": "home",
+    "src": "resources/js/home.js",
+    "isEntry": true
+  }
+}
