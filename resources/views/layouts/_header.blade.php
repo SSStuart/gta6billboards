@@ -13,8 +13,8 @@
             </a>
         </div>
         <nav>
-            <a href="{{ route('map') }}">Map</a>
-            <a href="{{ route('contribute') }}">Contribute</a>
+            <a href="{{ route('map') }}" data-active-page="{{ in_array(Route::currentRouteName(), ['map', 'map.show']) }}" class="comingSoon">Map</a>
+            <a href="{{ route('contribute') }}" data-active-page="{{ Route::currentRouteName() == 'contribute' }}" class="comingSoon">Contribute</a>
         </nav>
     </div>
 </header>
