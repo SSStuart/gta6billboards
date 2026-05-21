@@ -86,7 +86,7 @@ class AdminController extends Controller
         ]);
 
         $zoneId = $validated["zoneId"] ?? 0;
-        $contributorId = $validated["zoneId"] ?? 0;
+        $contributorId = $validated["contributorId"] ?? 0;
 
         if (!isset($validated["contributorId"]) && !$validated["newContributorUsername"])
             return back()->withErrors([
