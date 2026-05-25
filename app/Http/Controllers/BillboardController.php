@@ -15,7 +15,7 @@ class BillboardController extends Controller
     }
 
     public function show(string $slug) {
-        $billboard = Billboard::where('slug', $slug)->first();
+        $billboard = Billboard::where('slug', $slug)->firstOrFail();
         $previousBillboard = Billboard::where('id', '<', $billboard->id)->orderBy('id', 'desc')->first();
         $nextBillboard = Billboard::where('id', '>', $billboard->id)->orderBy('id')->first();
 

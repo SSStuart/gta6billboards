@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BillboardController::class, 'index'])->name('index');
 Route::get('/billboard/{slug}', [BillboardController::class, 'show'])->name('billboard.show');
+Route::redirect('/billboard', '/');
 Route::view('/map', 'map')->name('map');
 Route::get('/map/{slug}', [MapController::class, 'show'])->name('map.show');
 Route::get('/contribute', [ContributionController::class, 'index'])->name('contribute');
