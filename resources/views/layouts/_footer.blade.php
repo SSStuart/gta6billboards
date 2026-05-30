@@ -1,5 +1,7 @@
 <footer>
     @ssstuart
+    <br>
+    <a href="https://github.com/SSStuart/gta6billboards" target="_blank" style="opacity: 0.7;margin-block-start: 0.5em;display: inline-block;">Source code</a>
     <hr style="width: min(80%, 20ch);color:#8884; border-style: solid;">
     <button class="tooltipTarget" id="iaDisclaimerBtn">
         <i class='iiicon' data-name='ai_info'></i>
