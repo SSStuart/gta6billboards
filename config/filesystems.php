@@ -49,7 +49,7 @@ return [
 
         'public_root' => [
             'driver' => 'local',
-            'root' => public_path('public'),
+            'root' => public_path(),
             'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/public',
             'visibility' => 'public',
             'throw' => false,
