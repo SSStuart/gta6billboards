@@ -12,7 +12,7 @@ Schedule::call(function() {
     Log::info("Sending mail for awaiting uploaded images...");
 
     // Send email if new uploaded images
-    $files = Storage::disk('public')->files("pictures/uploaded");
+    $files = Storage::files("pictures/uploaded");
 
     $newFiles = [];
 
