@@ -52,6 +52,10 @@ let oldMinutes = 0;
 
 function updateCountdown() {
     const now = new Date();
+    if (releaseDate < now) {
+        document.getElementById('countdown').innerHTML = "Have fun playing!";
+        return;
+    }
     let countdown = "";
     let remainingSeconds = (releaseDate-now) / 1000;
     const remainingDays = Math.floor(remainingSeconds / (60 * 60 * 24));
@@ -82,7 +86,10 @@ function updateCountdown() {
     document.getElementById('countdown').innerHTML = countdown;
 }
 
-updateCountdown();
-setInterval(() => {
+if (releaseDate > new Date()) {
     updateCountdown();
-}, 1000);
+    setInterval(() => {
+        updateCountdown();
+    }, 1000);
+} else
+    document.getElementById('countdown').innerHTML = "Have fun playing!";
