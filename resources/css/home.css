@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Oswald";
+    font-display: swap;
+    src: url("/fonts/Oswald/Oswald-VariableFont.woff2") format('woff2');
+}
+
 .inputCont:has(input[type="checkbox"]:focus-visible) {
 	outline: solid 2px var(--accent-color);
 }
