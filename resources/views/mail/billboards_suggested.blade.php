@@ -5,7 +5,7 @@
         <span><strong>From:</strong> {{ $username }}</span>
         <p style="border-inline-start: 2px solid #8888; padding-inline-start: 2ch;">{{ $comment }}</p>
         @foreach ($images as $image)
-            <img src="{{ $message->embed($image) }}" alt="">
+            <img src="{{ $message->embed(storage_path("app/private/pictures/uploaded/$image") }}" alt="">
         @endforeach
     </body>
 </html>
