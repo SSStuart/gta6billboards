@@ -9,7 +9,6 @@
 
 @section('content')
     <main id="main">
-        <div id="laterOverlay"><h2>User contributions are <em>Coming later™</em></h2></div>
         <section>
             <h2>Contributing</h2>
             <p>You can contribute by taking photos (screenshots) of billboards that haven't been listed yet (or of billboards of poor quality).</p>

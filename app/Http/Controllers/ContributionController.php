@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BillboardsSuggested;
 use App\Models\Contributor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ContributionController extends Controller
 {
@@ -17,13 +19,9 @@ class ContributionController extends Controller
     }
 
     public function store(Request $request) {
-        return redirect()
-            ->back()
-            ->with('error', 'Still coming soon');
-
         $validated = $request->validate([
             "images" => "required|array",
-            "images.*" => "required|image|max:2000",
+            "images.*" => "required|image|max:4000",
             "comment" => "nullable|string",
             "username" => "nullable|string",
         ]);
@@ -52,6 +50,8 @@ class ContributionController extends Controller
         ];
 
         Storage::append('uploaded_comments.json', ",\r\n".json_encode($comment, JSON_PRETTY_PRINT));
+
+        Mail::to('contact@ssstuart.net')->send(new BillboardsSuggested($validated["username"], $validated["comment"], $filenames));
 
         return redirect()
             ->back()
