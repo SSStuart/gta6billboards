@@ -51,7 +51,7 @@ class ContributionController extends Controller
 
         Storage::append('uploaded_comments.json', ",\r\n".json_encode($comment, JSON_PRETTY_PRINT));
 
-        Mail::to('contact@ssstuart.net')->send(new BillboardsSuggested($validated["username"], $validated["comment"], $filenames));
+        Mail::to('contact@ssstuart.net')->send(new BillboardsSuggested($validated["username"] ?? "Anonymous", $validated["comment"] ?? "", $filenames));
 
         return redirect()
             ->back()
