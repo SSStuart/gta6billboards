@@ -46,10 +46,11 @@ class BillboardsSuggested extends Mailable
      */
     public function attachments(): array
     {
-        $attachments = [];
-        foreach ($this->images as $image) {
-            $attachments[] = Attachment::fromStorage("pictures/uploaded/{$image}");
-        }
-        return $attachments;
+        // $attachments = [];
+        // foreach ($this->images as $image) {
+        //     $attachments[] = Attachment::fromStorage("pictures/uploaded/{$image}");
+        // }
+        // return $attachments;
+        return [];
     }
 }
