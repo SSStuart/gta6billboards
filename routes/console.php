@@ -20,9 +20,18 @@ Schedule::call(function() {
     foreach ($files as $file) {
         $fileTimestamp = explode("_", array_last(explode("/", $file)))[0];
         $fileParsedTimestamp = Carbon::createFromTimestamp($fileTimestamp);
-        if ($fileParsedTimestamp > $previousAlertTime)
-            $newFiles[] = $file;
+        if ($fileParsedTimestamp > $previousAlertTime) {
+            $metaDatas = Storage::json("uploaded_comments.json");
+            $metaDatas = $metaDatas[$fileTimestamp];
+
+            $newFiles[] = [
+                "file" => $file,
+                "username" => $metaDatas[$fileTimestamp]["username"],
+                "comment" => $metaDatas[$fileTimestamp]["comment"],
+            ];
+        }
     }
+
 
     if (count($newFiles) > 0)
         Mail::to("contact@ssstuart.net")->send(new ImagesUploaded($newFiles));

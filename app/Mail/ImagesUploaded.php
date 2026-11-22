@@ -17,7 +17,7 @@ class ImagesUploaded extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public array $images)
+    public function __construct(public array $contributions)
     {
     }
 
@@ -37,7 +37,7 @@ class ImagesUploaded extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.images',
+            view: 'mail.billboards_suggested_weekly',
         );
     }
 
