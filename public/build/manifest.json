@@ -18,7 +18,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app-B_kuvR0k.css",
+    "file": "assets/app-DTZ8wnvI.css",
     "name": "app",
     "names": [
       "app.css"
@@ -63,13 +63,13 @@
     "isEntry": true
   },
   "resources/js/admin/add_billboard.js": {
-    "file": "assets/add_billboard-CAZgKy72.js",
+    "file": "assets/add_billboard-DZGnFOWl.js",
     "name": "add_billboard",
     "src": "resources/js/admin/add_billboard.js",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Cy3RyIK9.js",
+    "file": "assets/app--2sLYkeX.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -78,19 +78,19 @@
     ]
   },
   "resources/js/bootstrap.js": {
-    "file": "assets/bootstrap-BA2N4v8M.js",
+    "file": "assets/bootstrap-BvRk9kiK.js",
     "name": "bootstrap",
     "src": "resources/js/bootstrap.js",
     "isEntry": true
   },
   "resources/js/contribute.js": {
-    "file": "assets/contribute-B7jzlotT.js",
+    "file": "assets/contribute-lyC0Y2S1.js",
     "name": "contribute",
     "src": "resources/js/contribute.js",
     "isEntry": true
   },
   "resources/js/home.js": {
-    "file": "assets/home-KUBA1xAX.js",
+    "file": "assets/home-DHJjblGM.js",
     "name": "home",
     "src": "resources/js/home.js",
     "isEntry": true
