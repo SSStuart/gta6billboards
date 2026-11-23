@@ -1,40 +1,20 @@
 <?php
 
-use App\Mail\ImagesUploaded;
+use App\Mail\PendingContributionNotification;
 use App\Models\Billboard;
-use Carbon\Carbon;
+use App\Models\PendingContribution;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Facades\Storage;
 
 Schedule::call(function() {
-    Log::info("Sending mail for awaiting uploaded images...");
+    Log::info("Sending weekly mail for pending contributions...");
 
-    // Send email if new uploaded images
-    $files = Storage::files("pictures/uploaded");
+    $pendingContributions = PendingContribution::get();
 
-    $newFiles = [];
-
-    $previousAlertTime = Carbon::now()->subWeek();
-    foreach ($files as $file) {
-        $fileTimestamp = explode("_", array_last(explode("/", $file)))[0];
-        $fileParsedTimestamp = Carbon::createFromTimestamp($fileTimestamp);
-        if ($fileParsedTimestamp > $previousAlertTime) {
-            $metaDatas = Storage::json("uploaded_comments.json");
-            $metaDatas = $metaDatas[$fileTimestamp];
-
-            $newFiles[] = [
-                "file" => $file,
-                "username" => $metaDatas[$fileTimestamp]["username"],
-                "comment" => $metaDatas[$fileTimestamp]["comment"],
-            ];
-        }
-    }
-
-
-    if (count($newFiles) > 0)
-        Mail::to("contact@ssstuart.net")->send(new ImagesUploaded($newFiles));
+    if ($pendingContributions->count > 0)
+        Mail::to("contact@ssstuart.net")->send(new PendingContributionNotification($pendingContributions));
 })->weekly();
 
 Schedule::call(function() {

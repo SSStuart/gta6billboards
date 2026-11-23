@@ -74,7 +74,7 @@
                     <div id="ignoredImages"></div>
                 </div>
                 <div class="inputCont" data-dir="vertical">
-                    <label for="comment">Comment:</label>
+                    <label for="comment">Comment: <small>(Max 2500 chars.)</small></label>
                     <textarea name="comment" id="comment" placeholder="Anything special about the billboard(s)?" cols="30" rows="5"></textarea>
                 </div>
                 <div class="inputCont" data-dir="vertical">
